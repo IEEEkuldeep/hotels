@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'hotels';
+  values: any;
+  sendData(value:any) {
+    console.log("ANOTHEr Components",value);
+    this.values = value;
+  }
 }

@@ -1,0 +1,27 @@
+<div>
+  <form #search="ngForm" (ngSubmit)="OnSubmit(search)">
+    <label>Enter here destination City Name::</label>
+    <input type="text" name="destination" ngModel #destination="ngModel" />
+    <br />
+    <br />
+    <label>Check In ::</label>
+    <input type="date" name="checkin" ngModel #checkin="ngModel" />
+    <br />
+    <br />
+    <label>Check Out::</label>
+    <input type="date" name="checkout" ngModel #chcekout="ngModel" />
+    <br />
+    <br />
+    <label>Number Of People::</label>
+    <!-- {{peoples| json}} -->
+    <select name="numofpeople" ngModel #numofpeople="ngModel">
+      <option *ngFor="let selectedNumber of peoples">
+        {{ selectedNumber }}
+      </option>
+    </select>
+    <br />
+    <br />
+    <!-- routerLink="/hotels" -->
+    <button class="btn btn-success" type="submit" >Search</button>
+  </form>
+</div>

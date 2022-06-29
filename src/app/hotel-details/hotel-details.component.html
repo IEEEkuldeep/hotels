@@ -1,0 +1,31 @@
+<div class="container">
+  <button class="btn btn-primary" (click)="allHotels()">All hotels</button>
+  <app-search-form (senddata)="sendData($event)"></app-search-form>
+
+  {{ values | json }}
+  <!-- 
+  {{ hotelData | json }}
+   -->
+  <div class="row align-items-start mt-5">
+    <div class="col" *ngFor="let hotel of hotelData; let i = index">
+      <div class="card mt-5" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">{{ hotel.name }}</h5>
+          <p class="card-text">
+            {{ hotel.description }}
+          </p>
+          <b>Country: {{ hotel.country }}</b>
+          <br />
+          <i>City: {{ hotel.city }}</i
+          ><br />
+
+          <i>Rating: {{ hotel.rating | number: "1.3-3" }}</i>
+          <br />
+          <a [routerLink]="['/hotels', hotel.id]" class="btn btn-primary"
+            >{{ hotel.price | currency: "INR" }} &nbsp; Per/Night</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
